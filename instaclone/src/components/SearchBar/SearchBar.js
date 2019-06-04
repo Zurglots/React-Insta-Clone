@@ -1,12 +1,15 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Iglogo from "./Iglogo";
 
 const SearchBar = props => {
   return (
-    <div>
+    <div className="nav-bar">
       <div className="icons">
-        <FontAwesomeIcon icon={["fab", "instagram"]} />
-        <img src="/images/instagram-logo.svg" alt="insta-logo" />
+        <div className="ig-icon">
+          <FontAwesomeIcon icon={["fab", "instagram"]} />
+        </div>
+        <Iglogo />
       </div>
       <form className="search-bar">
         <input
@@ -16,6 +19,11 @@ const SearchBar = props => {
           name=""
         />
       </form>
+      <div className="right-icons">
+        <FontAwesomeIcon icon={["far", "compass"]} />
+        <FontAwesomeIcon icon={["far", "heart"]} />
+        <FontAwesomeIcon icon={["far", "user"]} />
+      </div>
     </div>
   );
 };
