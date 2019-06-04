@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer/PostContainer";
+import SearchBar from "./components/SearchBar/SearchBar";
 // import CommentSection from "./components/CommentSection/CommentSection";
 
 class App extends React.Component {
@@ -15,9 +16,11 @@ class App extends React.Component {
   render() {
     console.log(this.state.data);
     return (
-      <div className="App">
+      <div className="main-wrapper">
+        <div className="search-header">
+          <SearchBar />
+        </div>
         <PostContainer data={this.state.data} />
-        {/* <CommentSection coms={this.state.data} /> */}
       </div>
     );
   }

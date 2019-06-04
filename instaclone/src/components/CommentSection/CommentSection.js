@@ -1,5 +1,7 @@
 import React from "react";
 
+import Comment from "./Comment";
+
 // class CommentSection extends React.Component {
 //     constructor() {
 //         super();
@@ -9,18 +11,25 @@ import React from "react";
 //       }
 // }
 
-// function CommentSection(props) {
-//   console.log(props);
-//   return (
-//     <div>
-//       {props.coms.map(comment => (
-//         <div key={comment.comments.id}>
-//           <h4>{comment.comments.username}</h4>
-//           {comment.text && comment.text.map(e => <p key={e.id}>{e.text}</p>)}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
+function CommentSection(props) {
+  return (
+    <div>
+      {props.coms.map(comment => (
+        <div>
+          <Comment comtext={comment} />
+        </div>
+      ))}
+      <form>
+        <input
+          placeholder="Add a comment..."
+          // onChange={this.handleChanges}
+          // value={this.state.task}
+          name=""
+        />
+        <button />
+      </form>
+    </div>
+  );
+}
 
-// export default CommentSection;
+export default CommentSection;
