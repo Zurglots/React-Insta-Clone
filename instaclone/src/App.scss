@@ -1,0 +1,24 @@
+// page wrapper
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+// search bar/nav styling
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+
+  .ig-icon {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+  }
+
+  .icons {
+    display: flex;
+  }
+}
