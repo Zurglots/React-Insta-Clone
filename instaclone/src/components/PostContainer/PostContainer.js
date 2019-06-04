@@ -1,28 +1,49 @@
 import React from "react";
 
 import CommentSection from "../CommentSection/CommentSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// <div key={post.comments.id} className="comments">
+class PostContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { posts: this.props.data };
+  }
 
-//             </div>
+  // componentDidMount() {
+  //   this.setState({
+  //     posts: this.props.data
+  //   });
+  // }
+  // this.setState({
+  //   posts:
+  // });
 
-function PostContainer(props) {
-  console.log(props);
-  return (
-    <div>
-      {props.data.map(post => (
-        <div key={post.id} className="posts">
-          <h3>{post.username}</h3>
-          <img src={post.thumbnailUrl} />
-          <img src={post.imageUrl} alt="instapost img" />
-          <div>
-            <h3>100 Likes</h3>
+  // addLike = e => {
+  //   this.setState({
+  //     newLike: prevState
+  //   });
+  // };
+
+  render() {
+    console.log(this.state.posts);
+    return (
+      <div>
+        {this.state.posts.map(post => (
+          <div key={post.id} className="posts">
+            <h3>{post.username}</h3>
+            <img src={post.thumbnailUrl} />
+            <img src={post.imageUrl} alt="instapost img" />
+            <div>
+              <FontAwesomeIcon className="heart" icon={["far", "heart"]} />
+              <FontAwesomeIcon icon={["far", "comment"]} />
+              <h3>100 Likes</h3>
+            </div>
+            <CommentSection coms={post.comments} />
           </div>
-          <CommentSection coms={post.comments} />
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  }
 }
 
 export default PostContainer;

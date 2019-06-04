@@ -29,13 +29,16 @@ class CommentSection extends React.Component {
       text: this.state.commentInput
     };
     this.setState({
-      comments: [...this.state.comments, newComment]
+      comments: [...this.state.comments, newComment],
+      commentInput: ""
     });
   };
 
-  // addComment to form submit
-
-  //change handler to
+  handleChanges = e => {
+    this.setState({
+      commentInput: e.target.value
+    });
+  };
 
   render() {
     return (

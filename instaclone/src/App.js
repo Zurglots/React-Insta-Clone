@@ -22,14 +22,14 @@ library.add(fab, far, faCompass, faComment, faHeart, faUser);
 
 class App extends React.Component {
   state = {
-    data: []
+    data: dummyData
   };
 
-  componentDidMount() {
-    this.setState({
-      data: dummyData
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     data: dummyData
+  //   });
+  // }
 
   render() {
     console.log(this.state.data);
