@@ -2,35 +2,61 @@ import React from "react";
 
 import Comment from "./Comment";
 
-// class CommentSection extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//           data: dummyData
-//         };
-//       }
-// }
+const randoNames = ["thing1", "thing2", "thing3"];
 
-function CommentSection(props) {
-  console.log(props.coms.id);
-  return (
-    <div>
-      {props.coms.map(comment => (
-        <div key={props.coms.id}>
-          <Comment comtext={comment} />
-        </div>
-      ))}
-      <form>
-        <input
-          placeholder="Add a comment..."
-          // onChange={this.handleChanges}
-          // value={this.state.task}
-          name=""
-        />
-        <button />
-      </form>
-    </div>
-  );
+class CommentSection extends React.Component {
+  state = {
+    comments: [],
+    commentInput: ""
+  };
+
+  //change handler
+
+  componentDidMount() {
+    this.setState({
+      comments: this.props.coms
+    });
+  }
+
+  addComment = e => {
+    e.preventDefault();
+    const newComment = {
+      id: this.state.comments.length + 1,
+      username: () => {
+        let num = Math.floor(Math.random() * this.state.randoNames.length);
+        return randoNames[num];
+      },
+      text: this.state.commentInput
+    };
+    this.setState({
+      comments: [...this.state.comments, newComment]
+    });
+  };
+
+  // addComment to form submit
+
+  //change handler to
+
+  render() {
+    return (
+      <div>
+        {this.state.comments.map((comment, i) => (
+          <div key={i}>
+            <Comment comtext={comment} />
+          </div>
+        ))}
+        <form onSubmit={this.addComment}>
+          <input
+            placeholder="Add a comment..."
+            onChange={this.handleChanges}
+            // value={this.state.task}
+            name=""
+          />
+          <button />
+        </form>
+      </div>
+    );
+  }
 }
 
 export default CommentSection;

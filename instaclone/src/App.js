@@ -21,12 +21,16 @@ library.add(fab, far, faCompass, faComment, faHeart, faUser);
 // import CommentSection from "./components/CommentSection/CommentSection";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+  state = {
+    data: []
+  };
+
+  componentDidMount() {
+    this.setState({
       data: dummyData
-    };
+    });
   }
+
   render() {
     console.log(this.state.data);
     return (

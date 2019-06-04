@@ -26,5 +26,3 @@ function PostContainer(props) {
 }
 
 export default PostContainer;
-
-// why does post.comments allow us to access the prop of data in that prop on line 19.
