@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+// import { string, number } from 'prop-types';
 
 export default class Iglogo extends Component {
   render() {
+    //   const {color, size} = this.props;
     return (
       <svg
         width="512px"
@@ -20,3 +22,13 @@ export default class Iglogo extends Component {
     );
   }
 }
+
+// Iglogo.propTypes = {
+//     color: string,
+//     size: number,
+// };
+
+// Iglogo.defaultProps = {
+//     color: #343433
+//     size:
+// }

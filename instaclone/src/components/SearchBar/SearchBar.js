@@ -6,10 +6,12 @@ const SearchBar = props => {
   return (
     <div className="nav-bar">
       <div className="icons">
-        <div className="ig-icon">
-          <FontAwesomeIcon icon={["fab", "instagram"]} />
+        <div className="ig-icon-wrapper">
+          <FontAwesomeIcon className="ig-icon" icon={["fab", "instagram"]} />
         </div>
-        <Iglogo />
+        <div className="ig-textlogo">
+          <Iglogo />
+        </div>
       </div>
       <form className="search-bar">
         <input
