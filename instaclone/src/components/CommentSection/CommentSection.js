@@ -12,10 +12,11 @@ import Comment from "./Comment";
 // }
 
 function CommentSection(props) {
+  console.log(props.coms.id);
   return (
     <div>
       {props.coms.map(comment => (
-        <div>
+        <div key={props.coms.id}>
           <Comment comtext={comment} />
         </div>
       ))}
