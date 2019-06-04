@@ -4,6 +4,18 @@ import "./App.scss";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer/PostContainer";
 import SearchBar from "./components/SearchBar/SearchBar";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCompass,
+  faComment,
+  faHeart,
+  faUser
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faCompass, faComment, faHeart, faUser);
+
 // import CommentSection from "./components/CommentSection/CommentSection";
 
 class App extends React.Component {

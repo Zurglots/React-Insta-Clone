@@ -1,14 +1,12 @@
 import React from "react";
-// import logo from "instaclonepublicimagesinstagram-seeklogo.com.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchBar = props => {
   return (
     <div>
       <div className="icons">
-        <img
-          src="instaclone\public\images\instagram-seeklogo.com.svg"
-          alt="insta-logo"
-        />
+        <FontAwesomeIcon icon={["fab", "instagram"]} />
+        <img src="/images/instagram-logo.svg" alt="insta-logo" />
       </div>
       <form className="search-bar">
         <input
