@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class PostContainer extends React.Component {
   state = {
     posts: [],
-    liked: false
+    liked: false,
+    likes: ""
   };
 
   componentDidUpdate(prevProps) {
@@ -20,7 +21,8 @@ class PostContainer extends React.Component {
 
   addLike = e => {
     this.setState({
-      liked: !this.state.liked
+      liked: !this.state.liked,
+      likes: this.state.likes + 1
     });
   };
 
@@ -35,7 +37,12 @@ class PostContainer extends React.Component {
             <img src={post.imageUrl} alt="instapost img" />
             <div>
               {this.state.liked ? (
-                <p onClick={this.addLike}>liked</p>
+                <FontAwesomeIcon
+                  onClick={this.addLike}
+                  className="heart"
+                  icon={["fas", "heart"]}
+                  style={{ color: "red" }}
+                />
               ) : (
                 <FontAwesomeIcon
                   onClick={this.addLike}
@@ -44,7 +51,7 @@ class PostContainer extends React.Component {
                 />
               )}
               <FontAwesomeIcon icon={["far", "comment"]} />
-              <h3>100 Likes</h3>
+              <h3>{this.state.likes} Likes</h3>
             </div>
             <CommentSection coms={post.comments} />
           </div>
