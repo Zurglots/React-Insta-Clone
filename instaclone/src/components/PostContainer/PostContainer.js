@@ -4,25 +4,25 @@ import CommentSection from "../CommentSection/CommentSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class PostContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { posts: this.props.data };
+  state = {
+    posts: [],
+    liked: false
+  };
+
+  componentDidUpdate(prevProps) {
+    console.log(this.props);
+    if (prevProps !== this.props) {
+      this.setState({
+        posts: this.props.data
+      });
+    }
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     posts: this.props.data
-  //   });
-  // }
-  // this.setState({
-  //   posts:
-  // });
-
-  // addLike = e => {
-  //   this.setState({
-  //     newLike: prevState
-  //   });
-  // };
+  addLike = e => {
+    this.setState({
+      liked: !this.state.liked
+    });
+  };
 
   render() {
     console.log(this.state.posts);
@@ -34,7 +34,15 @@ class PostContainer extends React.Component {
             <img src={post.thumbnailUrl} />
             <img src={post.imageUrl} alt="instapost img" />
             <div>
-              <FontAwesomeIcon className="heart" icon={["far", "heart"]} />
+              {this.state.liked ? (
+                <p onClick={this.addLike}>liked</p>
+              ) : (
+                <FontAwesomeIcon
+                  onClick={this.addLike}
+                  className="heart"
+                  icon={["far", "heart"]}
+                />
+              )}
               <FontAwesomeIcon icon={["far", "comment"]} />
               <h3>100 Likes</h3>
             </div>

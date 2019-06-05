@@ -52,7 +52,7 @@ class CommentSection extends React.Component {
           <input
             placeholder="Add a comment..."
             onChange={this.handleChanges}
-            // value={this.state.task}
+            value={this.state.commentInput}
             name=""
           />
           <button />

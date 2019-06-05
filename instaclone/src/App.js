@@ -22,17 +22,17 @@ library.add(fab, far, faCompass, faComment, faHeart, faUser);
 
 class App extends React.Component {
   state = {
-    data: dummyData
+    data: []
   };
 
-  // componentDidMount() {
-  //   this.setState({
-  //     data: dummyData
-  //   });
-  // }
+  componentDidMount() {
+    this.setState({
+      data: dummyData
+    });
+  }
 
   render() {
-    console.log(this.state.data);
+    console.log(dummyData);
     return (
       <div className="main-wrapper">
         <div className="search-header">
