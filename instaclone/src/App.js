@@ -3,11 +3,14 @@ import logo from "./logo.svg";
 import "./App.scss";
 import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/Authentication/withAuthenticate";
+import Login from "./components/Login/Login";
 
 // import CommentSection from "./components/CommentSection/CommentSection";
 
 class App extends React.Component {
-  state = {};
+  state = {
+    loggedIn: false
+  };
 
   render() {
     return (
@@ -18,6 +21,6 @@ class App extends React.Component {
   }
 }
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
 export default App;
