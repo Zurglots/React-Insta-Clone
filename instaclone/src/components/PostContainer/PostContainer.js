@@ -1,59 +1,29 @@
 import React from "react";
 
-import CommentSection from "../CommentSection/CommentSection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Post from "./Post";
 
 class PostContainer extends React.Component {
   state = {
-    posts: [],
-    liked: false,
-    likes: 137
+    posts: []
   };
 
   componentDidUpdate(prevProps) {
     console.log(this.props);
     if (prevProps !== this.props) {
       this.setState({
-        posts: this.props.data
+        posts: this.props.data,
+        likes: this.props.likes
       });
     }
   }
-
-  addLike = e => {
-    this.setState({
-      liked: !this.state.liked,
-      likes: this.state.likes + 1
-    });
-  };
 
   render() {
     console.log(this.state.posts);
     return (
       <div>
-        {this.state.posts.map(post => (
+        {this.state.posts.map((post, i) => (
           <div key={post.id} className="posts">
-            <h3>{post.username}</h3>
-            <img src={post.thumbnailUrl} />
-            <img src={post.imageUrl} alt="instapost img" />
-            <div>
-              {this.state.liked ? (
-                <FontAwesomeIcon
-                  onClick={this.addLike}
-                  className="heart"
-                  icon={["fas", "heart"]}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  onClick={this.addLike}
-                  className="heart"
-                  icon={["far", "heart"]}
-                />
-              )}
-              <FontAwesomeIcon icon={["far", "comment"]} />
-              <h3>{this.state.likes} Likes</h3>
-            </div>
-            <CommentSection coms={post.comments} />
+            <Post {...post} />
           </div>
         ))}
       </div>
