@@ -7,7 +7,7 @@ class PostContainer extends React.Component {
   state = {
     posts: [],
     liked: false,
-    likes: ""
+    likes: 137
   };
 
   componentDidUpdate(prevProps) {
