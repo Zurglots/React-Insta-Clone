@@ -7,11 +7,9 @@ import Login from "./components/Login/Login";
 
 // import CommentSection from "./components/CommentSection/CommentSection";
 
-class App extends React.Component {
-  state = {
-    loggedIn: false
-  };
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
+class App extends React.Component {
   render() {
     return (
       <div className="main-wrapper">
@@ -20,7 +18,5 @@ class App extends React.Component {
     );
   }
 }
-
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
 export default App;

@@ -18,7 +18,9 @@ library.add(fab, far, faCompass, faComment, faHeart, faUser);
 
 class PostsPage extends React.Component {
   state = {
-    data: []
+    data: [],
+    search: "",
+    filteredPosts: []
   };
 
   componentDidMount() {
@@ -26,13 +28,38 @@ class PostsPage extends React.Component {
       data: dummyData
     });
   }
+
+  handleChanges = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.value]: e.target.value
+    });
+  };
+
+  searchFilter = e => {
+    const posts = this.state.data.filter(post => {
+      if (post.username.includes(e.target.value)) {
+        return post;
+      }
+    });
+    this.setState({
+      filteredPosts: posts
+    });
+  };
+
   render() {
     return (
       <div>
         <div className="search-header">
-          <SearchBar />
+          <SearchBar searchFilter={this.searchFilter} />
         </div>
-        <PostContainer data={this.state.data} />
+        <PostContainer
+          posts={
+            this.state.filteredPosts.length > 0
+              ? this.state.filteredPosts
+              : this.state.data
+          }
+        />
       </div>
     );
   }
