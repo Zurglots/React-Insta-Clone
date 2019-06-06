@@ -29,12 +29,12 @@ class PostsPage extends React.Component {
     });
   }
 
-  handleChanges = e => {
-    e.preventDefault();
-    this.setState({
-      [e.target.value]: e.target.value
-    });
-  };
+  // handleChanges = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     [e.target.value]: e.target.value
+  //   });
+  // };
 
   searchFilter = e => {
     const posts = this.state.data.filter(post => {

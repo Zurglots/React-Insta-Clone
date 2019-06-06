@@ -12,6 +12,10 @@ const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 const AppDiv = styled.div`
   font-family: sans-serif;
   text-align: center;
+  // max-width: 500px;
+  // justify-content: center;
+  // align-content: center;
+  margin: 0 auto;
 `;
 
 class App extends React.Component {
