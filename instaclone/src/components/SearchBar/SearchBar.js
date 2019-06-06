@@ -8,7 +8,7 @@ const NavBar = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border: 1px dashed orange;
+  // border: 1px dashed orange;
   max-width: 1100px;
   margin: 15px auto;
 `;
