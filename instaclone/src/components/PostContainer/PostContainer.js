@@ -1,6 +1,15 @@
 import React from "react";
 
 import Post from "./Post";
+import styled from "styled-components";
+
+const PostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+  max-width: 500px;
+  margin: 0 auto;
+`;
 
 class PostContainer extends React.Component {
   state = {
@@ -19,11 +28,11 @@ class PostContainer extends React.Component {
   render() {
     // console.log(this.state.posts);
     return (
-      <div>
+      <PostWrapper>
         {this.state.posts.map(post => {
           return <Post {...post} />;
         })}
-      </div>
+      </PostWrapper>
     );
   }
 }
