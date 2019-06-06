@@ -19,7 +19,7 @@ const withAuthenticate = App => LoginPage =>
     }
 
     render() {
-      return this.state.loggedin ? <App /> : <LoginPage />;
+      return this.state.loggedIn ? <App /> : <LoginPage />;
     }
   };
 
