@@ -8,10 +8,10 @@ class CommentSection extends React.Component {
   state = {
     comments: [],
     commentInput: "",
-    randoNames: [{ username: "a guy!", username: "a girl!" }]
+    randoNames: []
   };
 
-  //change handler
+  //add STATIC array of user names to be used from random selector OR refactor to pull from props.
 
   componentDidMount() {
     this.setState({

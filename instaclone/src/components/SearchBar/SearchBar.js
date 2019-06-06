@@ -15,10 +15,9 @@ const SearchBar = props => {
       </div>
       <form className="search-bar">
         <input
+          type="text"
           placeholder="search"
-          // onChange={this.handleChanges}
-          // value={this.state.task}
-          name=""
+          onKeyDown={props.searchFilter}
         />
       </form>
       <div className="right-icons">

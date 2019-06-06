@@ -11,21 +11,18 @@ class PostContainer extends React.Component {
     console.log(this.props);
     if (prevProps !== this.props) {
       this.setState({
-        posts: this.props.data,
-        likes: this.props.likes
+        posts: this.props.posts
       });
     }
   }
 
   render() {
-    console.log(this.state.posts);
+    // console.log(this.state.posts);
     return (
       <div>
-        {this.state.posts.map((post, i) => (
-          <div key={post.id} className="posts">
-            <Post {...post} />
-          </div>
-        ))}
+        {this.state.posts.map(post => {
+          return <Post {...post} />;
+        })}
       </div>
     );
   }
